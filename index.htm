@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JDM Automotive Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">JDM Hub</div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('hero')">Home</a></li>
+                <li><a href="#" onclick="showSection('blog')">Blog</a></li>
+                <li><a href="#" onclick="showSection('gallery')">Gallery</a></li>
+                <li><a href="#" onclick="showSection('customizer')">Customize</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero section active">
+        <div class="hero-bg-elements">
+            <div class="floating-car">🚗</div>
+            <div class="floating-car">🏎️</div>
+            <div class="floating-car">🚙</div>
+            <div class="floating-car">🏁</div>
+            <div class="speed-lines"></div>
+        </div>
+        <div class="container">
+        <div class="hero-content">
+            <h1>JDM Automotive Hub</h1>
+            <p>Your Ultimate Destination for JDM Culture, Car Knowledge & Customization</p>
+            
+            <div class="hero-features">
+                <div class="feature-card">
+                    <span class="feature-icon">📝</span>
+                    <h3>Expert Blogs</h3>
+                    <p>Deep dives into car components, tuning guides, and technical knowledge from JDM enthusiasts</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🖼️</span>
+                    <h3>JDM Gallery</h3>
+                    <p>Showcase of legendary Japanese performance cars with detailed specs and history</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔧</span>
+                    <h3>Car Customizer</h3>
+                    <p>Build your dream JDM machine with our interactive customization tool</p>
+                </div>
+            </div>
+            
+            <a href="#" class="cta-button" onclick="showSection('blog')">Start Exploring</a>
+        </div>
+        </div>
+    </section>
+
+    <section id="blog" class="section">
+        <div class="container">
+            <h2>Automotive Blog</h2>
+            
+            <div class="blog-controls">
+                <button onclick="toggleBlogForm()">Create New Post</button>
+                <button onclick="filterPosts('engine')">Engine</button>
+                <button onclick="filterPosts('suspension')">Suspension</button>
+                <button onclick="filterPosts('interior')">Interior</button>
+                <button onclick="filterPosts('exterior')">Exterior</button>
+                <button onclick="filterPosts('all')">All Posts</button>
+            </div>
+
+            <div id="blog-form" class="blog-form" style="display: none;">
+                <h3>Create New Blog Post</h3>
+                <form onsubmit="createBlogPost(event)">
+                    <div class="form-group">
+                        <label for="post-title">Title</label>
+                        <input type="text" id="post-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="post-category">Category</label>
+                        <select id="post-category" required>
+                            <option value="">Select Category</option>
+                            <option value="engine">Engine</option>
+                            <option value="suspension">Suspension</option>
+                            <option value="interior">Interior</option>
+                            <option value="exterior">Exterior</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="post-content">Content</label>
+                        <textarea id="post-content" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Publish Post</button>
+                </form>
+            </div>
+
+            <div id="blog-posts" class="blog-posts">
+                <!-- Sample blog posts -->
+                <div class="blog-post" data-category="engine">
+                    <h3>Understanding Turbo vs Supercharger</h3>
+                    <div class="meta">Engine • March 15, 2024</div>
+                    <p>Dive deep into the differences between turbochargers and superchargers, and learn which one suits your JDM build best. We'll cover the pros and cons of each forced induction system...</p>
+                </div>
+                
+                <div class="blog-post" data-category="suspension">
+                    <h3>Coilovers vs Air Suspension</h3>
+                    <div class="meta">Suspension • March 10, 2024</div>
+                    <p>The ultimate guide to choosing between coilovers and air suspension for your stance setup. Learn about adjustability, comfort, and performance differences...</p>
+                </div>
+                
+                <div class="blog-post" data-category="interior">
+                    <h3>JDM Interior Mods That Matter</h3>
+                    <div class="meta">Interior • March 5, 2024</div>
+                    <p>Transform your car's interior with authentic JDM styling. From shift knobs to steering wheels, discover the modifications that make the biggest impact...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section">
+        <div class="container">
+            <h2>JDM Gallery</h2>
+            <div class="gallery">
+                <div class="car-card">
+                    <div class="car-image">🚗</div>
+                    <div class="car-info">
+                        <h3>Nissan Skyline GT-R R34</h3>
+                        <p>The legendary Godzilla with RB26DETT engine, delivering pure JDM performance and iconic styling that defined a generation.</p>
+                        <div class="car-specs">
+                            <div class="spec">
+                                <div class="spec-value">280hp</div>
+                                <div>Power</div>
+                            </div>
+                            <div class="spec">
+                                <div class="spec-value">2.6L</div>
+                                <div>Engine</div>
+                            </div>
+                            <div class="spec">
+                                <div class="spec-value">AWD</div>
+                                <div>Drive</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image">🏎️</div>
+                    <div class="car-info">
+                        <h3>Honda NSX Type-R</h3>
+                        <p>Mid-engine masterpiece that redefined supercars. The NSX combines Honda's VTEC technology with perfect weight distribution.</p>
+                        <div class="car-specs">
+                            <div class="spec">
+                                <div class="spec-value">290hp</div>
+                                <div>Power</div>
+                            </div>
+                            <div class="spec">
+                                <div class="spec-value">3.0L</div>
+                                <div>Engine</div>
+                            </div>
+                            <div class="spec">
+                                <div class="spec-value">RWD</div>
+                                <div>Drive</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image">🚙</div>
+                    <div class="car-info">
+                        <h3>Toyota Supra MK4</h3>
+                        <p>The 2JZ-GTE powered beast that became a tuning legend. Capable of handling massive power with proper modifications.</p>
+                        <div class="car-specs">
+                            <div class="spec">
+                                <div class="spec-value">320hp</div>
+                                <div>Power</div>
+                            </div>
+                            <div class="spec">
+                                <div class="spec-value">3.0L</div>
+                                <div>Engine</div>
+                            </div>
+                            <div class="spec">
+                                <div class="spec-value">RWD</div>
+                                <div>Drive</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image">🏁</div>
+                    <div class="car-info">
+                        <h3>Mazda RX-7 FD</h3>
+                        <p>Rotary-powered icon with unmatched handling. The 13B-REW twin-turbo rotary engine delivers unique character and sound.</p>
+                        <div class="car-specs">
+                            <div class="spec">
+                                <div class="spec-value">280hp</div>
+                                <div>Power</div>
+                            </div>
+                            <div class="spec">
+                                <div class="spec-value">1.3L</div>
+                                <div>Engine</div>
+                            </div>
+                            <div class="spec">
+                                <div class="spec-value">RWD</div>
+                                <div>Drive</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image">⚡</div>
+                    <div class="car-info">
+                        <h3>Mitsubishi Lancer EVO IX</h3>
+                        <p>Rally-bred all-wheel-drive monster with advanced electronic systems. The 4G63T engine is a tuner's dream.</p>
+                        <div class="car-specs">
+                            <div class="spec">
+                                <div class="spec-value">291hp</div>
+                                <div>Power</div>
+                            </div>
+                            <div class="spec">
+                                <div class="spec-value">2.0L</div>
+                                <div>Engine</div>
+                            </div>
+                            <div class="spec">
+                                <div class="spec-value">AWD</div>
+                                <div>Drive</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image">🔥</div>
+                    <div class="car-info">
+                        <h3>Subaru Impreza WRX STI</h3>
+                        <p>Boxer engine perfection with symmetrical all-wheel drive. The EJ25 produces distinctive rumble and serious performance.</p>
+                        <div class="car-specs">
+                            <div class="spec">
+                                <div class="spec-value">305hp</div>
+                                <div>Power</div>
+                            </div>
+                            <div class="spec">
+                                <div class="spec-value">2.5L</div>
+                                <div>Engine</div>
+                            </div>
+                            <div class="spec">
+                                <div class="spec-value">AWD</div>
+                                <div>Drive</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="customizer" class="section">
+        <div class="container">
+            <h2>Car Customizer</h2>
+            <div class="customizer">
+                <div class="car-preview">
+                    <div id="car-display" class="car-display">
+                        <div id="car-emoji">🚗</div>
+                    </div>
+                    <h3 id="car-name">Custom JDM Build</h3>
+                    <div id="car-summary">
+                        <p><strong>Body:</strong> <span id="summary-body">Sedan</span></p>
+                        <p><strong>Color:</strong> <span id="summary-color">Red</span></p>
+                        <p><strong>Wheels:</strong> <span id="summary-wheels">Stock</span></p>
+                        <p><strong>Suspension:</strong> <span id="summary-suspension">Stock</span></p>
+                        <p><strong>Exhaust:</strong> <span id="summary-exhaust">Stock</span></p>
+                    </div>
+                </div>
+
+                <div class="customization-panel">
+                    <div class="customization-group">
+                        <h4>Body Style</h4>
+                        <div class="option-buttons">
+                            <button class="option-btn active" onclick="setBodyStyle('sedan', '🚗')">Sedan</button>
+                            <button class="option-btn" onclick="setBodyStyle('coupe', '🏎️')">Coupe</button>
+                            <button class="option-btn" onclick="setBodyStyle('hatchback', '🚙')">Hatchback</button>
+                            <button class="option-btn" onclick="setBodyStyle('wagon', '🚐')">Wagon</button>
+                        </div>
+                    </div>
+
+                    <div class="customization-group">
+                        <h4>Paint Color</h4>
+                        <div class="color-picker">
+                            <div class="color-option active" style="background: #ff6b35;" onclick="setColor('#ff6b35', 'Red')"></div>
+                            <div class="color-option" style="background: #3498db;" onclick="setColor('#3498db', 'Blue')"></div>
+                            <div class="color-option" style="background: #2ecc71;" onclick="setColor('#2ecc71', 'Green')"></div>
+                            <div class="color-option" style="background: #f39c12;" onclick="setColor('#f39c12', 'Yellow')"></div>
+                            <div class="color-option" style="background: #9b59b6;" onclick="setColor('#9b59b6', 'Purple')"></div>
+                            <div class="color-option" style="background: #1a1a1a;" onclick="setColor('#1a1a1a', 'Black')"></div>
+                        </div>
+                    </div>
+
+                    <div class="customization-group">
+                        <h4>Wheels</h4>
+                        <div class="option-buttons">
+                            <button class="option-btn active" onclick="setWheels('Stock')">Stock</button>
+                            <button class="option-btn" onclick="setWheels('TE37')">TE37</button>
+                            <button class="option-btn" onclick="setWheels('RPF1')">RPF1</button>
+                            <button class="option-btn" onclick="setWheels('Work CR')">Work CR</button>
+                            <button class="option-btn" onclick="setWheels('BBS LM')">BBS LM</button>
+                        </div>
+                    </div>
+
+                    <div class="customization-group">
+                        <h4>Suspension</h4>
+                        <div class="option-buttons">
+                            <button class="option-btn active" onclick="setSuspension('Stock')">Stock</button>
+                            <button class="option-btn" onclick="setSuspension('Lowered')">Lowered</button>
+                            <button class="option-btn" onclick="setSuspension('Coilovers')">Coilovers</button>
+                            <button class="option-btn" onclick="setSuspension('Air Ride')">Air Ride</button>
+                            <button class="option-btn" onclick="setSuspension('Bagged')">Bagged</button>
+                        </div>
+                    </div>
+
+                    <div class="customization-group">
+                        <h4>Exhaust</h4>
+                        <div class="option-buttons">
+                            <button class="option-btn active" onclick="setExhaust('Stock')">Stock</button>
+                            <button class="option-btn" onclick="setExhaust('Cat-back')">Cat-back</button>
+                            <button class="option-btn" onclick="setExhaust('Turbo-back')">Turbo-back</button>
+                            <button class="option-btn" onclick="setExhaust('Straight Pipe')">Straight Pipe</button>
+                        </div>
+                    </div>
+
+                    <button class="cta-button" style="width: 100%; margin-top: 2rem;" onclick="saveBuild()">Save Build</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Global variables
+        let currentSection = 'hero';
+        let blogPosts = [];
+        let customBuild = {
+            bodyStyle: 'sedan',
+            emoji: '🚗',
+            color: '#ff6b35',
+            colorName: 'Red',
+            wheels: 'Stock',
+            suspension: 'Stock',
+            exhaust: 'Stock'
+        };
+
+        // Section navigation
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+            document.getElementById(sectionId).classList.add('fade-in');
+            currentSection = sectionId;
+        }
+
+        // Blog functionality
+        function toggleBlogForm() {
+            const form = document.getElementById('blog-form');
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function createBlogPost(event) {
+            event.preventDefault();
+            
+            const title = document.getElementById('post-title').value;
+            const category = document.getElementById('post-category').value;
+            const content = document.getElementById('post-content').value;
+            
+            const post = {
+                title,
+                category,
+                content,
+                date: new Date().toLocaleDateString()
+            };
+            
+            blogPosts.push(post);
+            
+            const postElement = document.createElement('div');
+            postElement.className = 'blog-post';
+            postElement.setAttribute('data-category', category);
+            postElement.innerHTML = `
+                <h3>${title}</h3>
+                <div class="meta">${category.charAt(0).toUpperCase() + category.slice(1)} • ${post.date}</div>
+                <p>${content}</p>
+            `;
+            
+            document.getElementById('blog-posts').insertBefore(postElement, document.getElementById('blog-posts').firstChild);
+            
+            // Reset form
+            document.getElementById('post-title').value = '';
+            document.getElementById('post-category').value = '';
+            document.getElementById('post-content').value = '';
+            toggleBlogForm();
+        }
+
+        function filterPosts(category) {
+            const posts = document.querySelectorAll('.blog-post');
+            posts.forEach(post => {
+                if (category === 'all' || post.getAttribute('data-category') === category) {
+                    post.style.display = 'block';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        }
+
+        // Car customizer functionality
+        function setBodyStyle(style, emoji) {
+            customBuild.bodyStyle = style;
+            customBuild.emoji = emoji;
+            document.getElementById('car-emoji').textContent = emoji;
+            document.getElementById('summary-body').textContent = style.charAt(0).toUpperCase() + style.slice(1);
+            updateActiveButton('body', style);
+        }
+
+        function setColor(colorCode, colorName) {
+            customBuild.color = colorCode;
+            customBuild.colorName = colorName;
+            document.getElementById('car-display').style.background = `linear-gradient(45deg, ${colorCode}, ${adjustBrightness(colorCode, 20)})`;
+            document.getElementById('summary-color').textContent = colorName;
+            updateActiveColorOption(colorCode);
+        }
+
+        function setWheels(wheels) {
+            customBuild.wheels = wheels;
+            document.getElementById('summary-wheels').textContent = wheels;
+            updateActiveButton('wheels', wheels);
+        }
+
+        function setSuspension(suspension) {
+            customBuild.suspension = suspension;
+            document.getElementById('summary-suspension').textContent = suspension;
+            updateActiveButton('suspension', suspension);
+        }
+
+        function setExhaust(exhaust) {
+            customBuild.exhaust = exhaust;
+            document.getElementById('summary-exhaust').textContent = exhaust;
+            updateActiveButton('exhaust', exhaust);
+        }
+
+        function updateActiveButton(type, value) {
+            const buttons = document.querySelectorAll('.option-btn');
+            buttons.forEach(btn => {
+                if (btn.textContent === value) {
+                    btn.classList.add('active');
+                } else if (btn.classList.contains('active') && btn.closest('.customization-group').querySelector('h4').textContent.toLowerCase().includes(type)) {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        function updateActiveColorOption(color) {
+            const colorOptions = document.querySelectorAll('.color-option');
+            colorOptions.forEach(option => {
+                if (option.style.background === color || option.style.backgroundColor === color) {
+                    option.classList.add('active');
+                } else {
+                    option.classList.remove('active');
+                }
+            });
+        }
+
+        function adjustBrightness(color, amount) {
+            const usePound = color[0] === '#';
+            const col = usePound ? color.slice(1) : color;
+            const num = parseInt(col, 16);
+            let r = (num >> 16) + amount;
+            let g = (num >> 8 & 0x00FF) + amount;
+            let b = (num & 0x0000FF) + amount;
+            r = r > 255 ? 255 : r < 0 ? 0 : r;
+            g = g > 255 ? 255 : g < 0 ? 0 : g;
+            b = b > 255 ? 255 : b < 0 ? 0 : b;
+            return (usePound ? '#' : '') + (r << 16 | g << 8 | b).toString(16).padStart(6, '0');
+        }
+
+        function saveBuild() {
+            const buildData = {
+                ...customBuild,
+                timestamp: new Date().toISOString()
+            };
+            
+            // In a real application, this would save to a database
+            console.log('Build saved:', buildData);
+            
+            // Show success message
+            alert(`Your custom ${customBuild.bodyStyle} build has been saved!\n\nSpecs:\n- Body: ${customBuild.bodyStyle}\n- Color: ${customBuild.colorName}\n- Wheels: ${customBuild.wheels}\n- Suspension: ${customBuild.suspension}\n- Exhaust: ${customBuild.exhaust}`);
+        }
+
+        // Initialize the website
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial customizer state
+            setColor('#ff6b35', 'Red');
+            
+            // Add smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Add hover effects to car cards
+            document.querySelectorAll('.car-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05) rotateY(5deg)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1) rotateY(0deg)';
+                });
+            });
+
+            // Add typing animation to hero text
+            const heroTitle = document.querySelector('.hero-content h1');
+            if (heroTitle) {
+                const text = heroTitle.textContent;
+                heroTitle.textContent = '';
+                let i = 0;
+                const typeWriter = () => {
+                    if (i < text.length) {
+                        heroTitle.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 100);
+                    }
+                };
+                setTimeout(typeWriter, 1000);
+            }
+
+            // Add parallax effect to hero section
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.5;
+                const hero = document.querySelector('.hero');
+                if (hero) {
+                    hero.style.transform = `translateY(${rate}px)`;
+                }
+            });
+
+            // Add dynamic background animation
+            const createFloatingElements = () => {
+                const body = document.body;
+                for (let i = 0; i < 20; i++) {
+                    const element = document.createElement('div');
+                    element.style.position = 'fixed';
+                    element.style.width = Math.random() * 4 + 'px';
+                    element.style.height = element.style.width;
+                    element.style.background = 'rgba(255, 107, 53, 0.1)';
+                    element.style.borderRadius = '50%';
+                    element.style.left = Math.random() * 100 + '%';
+                    element.style.top = Math.random() * 100 + '%';
+                    element.style.pointerEvents = 'none';
+                    element.style.zIndex = '-1';
+                    element.style.animation = `float ${Math.random() * 10 + 5}s ease-in-out infinite`;
+                    body.appendChild(element);
+                }
+            };
+
+            // Add floating animation CSS
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes float {
+                    0%, 100% { transform: translateY(0px) rotate(0deg); }
+                    50% { transform: translateY(-20px) rotate(180deg); }
+                }
+                
+                .car-card {
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+                
+                .car-card:hover {
+                    transform: translateY(-10px) scale(1.05);
+                    box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
+                }
+                
+                .blog-post {
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+                
+                .blog-post:hover {
+                    transform: translateY(-5px) scale(1.02);
+                    box-shadow: 0 15px 30px rgba(255, 107, 53, 0.2);
+                }
+                
+                .option-btn {
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+                
+                .option-btn:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+                }
+                
+                .cta-button {
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+                
+                .cta-button:hover {
+                    transform: translateY(-3px) scale(1.05);
+                    box-shadow: 0 10px 25px rgba(255, 107, 53, 0.4);
+                }
+                
+                .nav-links a {
+                    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+                
+                .nav-links a:hover {
+                    transform: translateY(-2px);
+                }
+            `;
+            document.head.appendChild(style);
+
+            createFloatingElements();
+        });
+    </script>
+</body>
+</html>
