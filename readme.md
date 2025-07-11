@@ -6,7 +6,7 @@
 
 ## 🌐 Live Demo
 
-> _Coming soon_ — deploy via GitHub Pages, Vercel, or Netlify!
+https://jdm-ui.vercel.app/
 
 ---
 
